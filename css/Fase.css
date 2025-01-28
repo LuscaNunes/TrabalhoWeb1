@@ -51,16 +51,106 @@ body {
 }
 
 .corpo_fase{
+    position: absolute; /* Posiciona em relação à tela */
+    left: 80px; /* Começa no canto esquerdo */
+    right: 255px; /* Ajusta o espaço com base na largura de .cantoDir */
+    top: 0; /* Alinha ao topo */
+    height: 100vh; /* Altura conforme a altura visível da página */
+}
+.cantoDir{
     position: absolute; /* Permite o posicionamento em relação à tela */
-    left: 80px; /* Distância de 80px da borda esquerda */
-    width: 300px; /* Define a largura para 300px */
-    
+    right: 0%;
+    top: 0%;
+    width: 255; /* Define a largura */
+    background-color: #2c334a;
+    text-align: right;
+    height: 100%;
+}
+
+.titulo{
+    text-align: center;
+    top: 0; /* Fica no topo */
 }
 
 .fase01{
-    
+    position: absolute;
+    left: 49%; /* Distância de 100px do canto esquerdo */
+    top: 90px; /* Fica no topo */
+}
+
+.circle {
+    position: relative; /* Permite posicionar o número em relação ao círculo */
+    width: 43.25px; /* Largura do círculo */
+    height: 43.25px; /* Altura do círculo */
+    background-color: #ddd; /* Cor de fundo do círculo */
+    border-radius: 50%; /* Faz o formato ser um círculo */
+    display: flex; /* Usa flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.number {
+    position: absolute; /* Número centralizado dentro do círculo */
+    color: black; /* Cor do número */
+    font-size: 32px; /* Tamanho do número */
+    font-weight: bold; /* Número em negrito */
+}
+
+.fase02{
+    position: absolute;
+    left: 45%; /* Distância de 150px do canto esquerdo */
+    top: 150px; /* Distância vertical (ajuste conforme necessário) */
+}
+.fase03{
+    position: absolute;
+    left: 43%;
+    top: 210;
+}
+.fase04{
+    position: absolute;
+    left: 45%;
+    top: 270;
     
 }
-.fase02{
+.fase05{
+    position: absolute;
+    left: 50%;
+    top: 330;
+}
+
+.fase06{
+    position: absolute;
+    left: 54%;
+    top: 390;
+}
+.fase07{
+    position: absolute;
+    left: 56%;
+    top: 450;
+}
+.fase08{
+    position: absolute;
+    left: 55%;
+    top: 510;
+}
+.fase09{
+    position: absolute;
+    left: 51%;
+    top: 570;
     
+}
+.fase10{
+    position: absolute;
+    left: 48%;
+    top: 630;
+}
+.fase11{
+    position: absolute;
+    left: 46%;
+    top: 690;
+}
+.fase12{
+    position: absolute;
+    left: 48%;
+    top: 750;
 }
