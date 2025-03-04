@@ -6,11 +6,11 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#profile">
+        <a href="Conta.html">
             <i class="fas fa-sheep"></i>
             <span>Perfil 👤</span>
         </a>
-        <a href="#mission">
+        <a href="Missao_atual.html">
             <i class="fas fa-scroll"></i>
             <span>Missão Atual</span>
         </a>
@@ -18,7 +18,7 @@
             <i class="fas fa-book-open"></i>
             <span>Aprendendo</span>
         </a>
-        <a href="#ranking">
+        <a href="Rank.html">
             <i class="fas fa-trophy"></i>
             <span>Rankin</span>
         </a>
@@ -96,8 +96,17 @@
     </Div>
     
     <Div class="CantoDir">
-        <h1>Canto direito Não e de esquerda</h1>
+        <h1></h1>
     </Div>
+
+    <script>
+        // Função para redirecionar ao clicar em qualquer fase
+        document.querySelectorAll('.fase01, .fase02, .fase03, .fase04, .fase05, .fase06, .fase07, .fase08, .fase09, .fase10, .fase11, .fase12').forEach(element => {
+            element.addEventListener('click', () => {
+                window.location.href = 'Fase_01.html'; // Redireciona para Fase_01.html
+            });
+        });
+    </script>
 
 </body>
 </html>

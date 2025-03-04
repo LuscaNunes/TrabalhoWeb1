@@ -1,38 +1,86 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Acesso.css">
-    <title>Acesso</title>
-</head>
-<body>
-    <div class="menu-container">
-        <!-- Ícone de menu -->
-        <div class="menu-icon" onclick="toggleMenu()">
-          ☰
-        </div>
-    
-        <!-- Menu suspenso -->
-        <div class="dropdown-menu" id="dropdownMenu">
-          <a href="#conta" class="menu-item">
-            <span class="icon">👤</span>
-            Conta
-          </a>
-          <a href="Fase.html" class="menu-item">
-            <span class="icon">🎮</span>
-            Fase
-          </a>
-          <a href="#rank" class="menu-item">
-            <span class="icon">🏆</span>
-            Rank
-          </a>
-        </div>
-      </div>
-      <!-- Botão para redirecionar -->
-  <button class="botao-acesso" onclick="window.location.href='login.html'">
-    login
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <title>
+   Acesso
+  </title>
+  <style>
+   body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #1A202C;
+            color: #E2E8F0;
+            margin: 0;
+            padding: 0;
+        }
+  </style>
+ </head>
+ <body class="flex flex-col items-center justify-center min-h-screen">
+  <div class="menu-container fixed top-4 right-4 z-50">
+   <div class="menu-icon text-white bg-blue-500 p-2 rounded cursor-pointer shadow-lg hover:bg-blue-700" onclick="toggleMenu()">
+    ☰
+   </div>
+   <div class="dropdown-menu hidden absolute top-12 right-0 bg-gray-800 rounded-lg shadow-lg overflow-hidden" id="dropdownMenu">
+    <a class="menu-item flex items-center gap-2 p-4 text-white hover:bg-blue-700" href="Conta.html">
+     <span class="icon">
+      👤
+     </span>
+     Conta
+    </a>
+    <a class="menu-item flex items-center gap-2 p-4 text-white hover:bg-blue-700" href="Fase.html">
+     <span class="icon">
+      🎮
+     </span>
+     Fase
+    </a>
+    <a class="menu-item flex items-center gap-2 p-4 text-white hover:bg-blue-700" href="Rank.html">
+     <span class="icon">
+      🏆
+     </span>
+     Rank
+    </a>
+   </div>
+  </div>
+  <div class="bg-gray-800 text-white rounded-lg p-6 w-full max-w-md text-center mb-4">
+   <h1 class="text-3xl font-bold mb-4">
+    Missão Atual
+   </h1>
+   <h2 class="text-2xl font-semibold mb-2">
+    Livro Atual: Gênesis
+   </h2>
+   <h3 class="text-xl font-semibold mb-2">
+    Fase Atual: Fase 01
+   </h3>
+   <p class="text-gray-400 mb-4">
+    Estudar o livro de Gênesis é fundamental para a vida de um cristão, pois ele nos apresenta as origens do mundo, da humanidade e do plano de Deus para a salvação. Gênesis nos mostra a criação do universo, a queda do homem e a promessa de redenção através de Jesus Cristo. Compreender esses princípios nos ajuda a entender melhor a nossa fé e a viver de acordo com os propósitos de Deus.
+   </p>
+   <h3 class="text-xl font-semibold mb-2">
+    Texto do Dia
+   </h3>
+   <p class="text-gray-400 mb-4">
+    "No princípio, criou Deus os céus e a terra." - Gênesis 1:1
+   </p>
+   <h3 class="text-xl font-semibold mb-2">
+    Mapa do Antigo Testamento
+   </h3>
+   <img alt="Mapa ilustrativo do Antigo Testamento" class="rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/SJSWMylaZtEZPxAvfcrO7nxpJgsSi5RvOdi0nOJTpME.jpg" width="300"/>
+   
+  </div>
+  <button class="bg-gray-700 text-white font-bold py-2 px-4 rounded-full mt-4 hover:bg-gray-600" onclick="window.location.href='login.html'">
+   Login
   </button>
-    <script src="js/Acesso.js"></script>
-</body>
+  <script>
+   function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none'; // Esconde o menu
+            } else {
+                menu.style.display = 'block'; // Mostra o menu
+            }
+        }
+  </script>
+ </body>
 </html>

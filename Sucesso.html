@@ -1,0 +1,118 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Conclusão da Fase 01</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #222831;
+            overflow: hidden;
+        }
+        .confetti {
+            position: absolute;
+            top: -10%;
+            width: 10px;
+            height: 10px;
+            background-color: #FFD700;
+            animation: fall 5s linear infinite;
+            border-radius: 50%;
+        }
+        /* Adicionando variações de cores e posições */
+        .confetti:nth-child(odd) {
+            background-color: #FF4500;
+        }
+        .confetti:nth-child(even) {
+            background-color: #32CD32;
+        }
+        .confetti:nth-child(3n) {
+            background-color: #1E90FF;
+        }
+        .confetti:nth-child(4n) {
+            background-color: #FF69B4;
+        }
+        .confetti:nth-child(5n) {
+            background-color: #FFD700;
+        }
+        /* Posições aleatórias */
+        .confetti {
+            left: calc(0% + (var(--random-left) * 100vw));
+            animation-delay: calc(var(--random-delay) * 5s);
+        }
+        /* Animação de queda */
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 relative">
+    <!-- Gerando muitos confetes -->
+    <script>
+        // Função para gerar números aleatórios
+        function getRandom(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Criando 200 confetes dinamicamente
+        const body = document.body;
+        for (let i = 0; i < 200; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.setProperty('--random-left', getRandom(0, 1)); // Posição horizontal aleatória
+            confetti.style.setProperty('--random-delay', getRandom(0, 1)); // Delay aleatório
+            body.appendChild(confetti);
+        }
+    </script>
+
+    <div class="bg-white bg-opacity-90 shadow-lg rounded-lg p-6 max-w-3xl w-full relative z-10">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
+            Parabéns, Amado(a) Irmão(ã) em Cristo!
+        </h1>
+        <p class="text-gray-700 text-lg mb-4">
+            Você acaba de concluir a Fase 01 – "No Princípio", um marco importante na sua jornada pelo conhecimento das Escrituras! Assim como Deus criou os céus e a terra no princípio (Gênesis 1:1), você também deu o primeiro passo em direção ao crescimento espiritual e ao aprofundamento na Palavra.
+        </p>
+        <p class="text-gray-700 text-lg mb-4">
+            Lembre-se das palavras do Salmo 119:105:
+            <strong>
+                "A tua palavra é lâmpada para os meus pés e luz para o meu caminho."
+            </strong>
+            Cada pergunta respondida e cada versículo estudado são como pequenas luzes que iluminam o seu entendimento e fortalecem a sua fé.
+        </p>
+        <p class="text-gray-700 text-lg mb-4">
+            Mas a jornada não termina aqui! Há muito mais por descobrir nas páginas da Bíblia. Que tal continuar avançando no quiz e explorar as próximas fases? Cada etapa trará novos desafios, promessas e revelações que transformarão ainda mais o seu coração e mente.
+        </p>
+        <p class="text-gray-700 text-lg mb-4">
+            Como está escrito em Filipenses 3:14:
+            <strong>
+                "Prossigo para o alvo, pelo prêmio da soberana vocação de Deus em Cristo Jesus."
+            </strong>
+            Avance com determinação, buscando sempre aprender mais sobre o amor, a sabedoria e os propósitos de Deus para a sua vida.
+        </p>
+        <div class="flex justify-center space-x-4 mt-6">
+            <div>
+                <a class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-bold hover:bg-blue-600 transition duration-300" href="Fase_01.html">
+                    Então "...Derepende..."
+                </a>
+            </div>
+            <div>
+                <a class="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-bold hover:bg-blue-600 transition duration-300" href="Fase.html">
+                    Então "...Casa..."
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

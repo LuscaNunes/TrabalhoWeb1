@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 01</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #222831; /* Fundo geral */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.5s ease;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #answers button {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            background: transparent;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        #answers button:hover {
+            transform: scale(1.02);
+        }
+
+        #confirmButton {
+            width: 100%;
+            padding: 1rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        #confirmButton:hover {
+            background: #2563eb;
+        }
+
+        #resultMessage {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: none;
+        }
+
+        #overlayMessage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            display: none;
+        }
+
+        #overlayMessage div {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        #overlayText {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        #overlayIcon {
+            margin-left: 0.5rem;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body id="quizBody">
+    <div class="quiz-container">
+        <h1>Pergunta 01</h1>
+        <p>Qual foi a primeira coisa que Deus criou no início?</p>
+        <div id="answers">
+            <button onclick="selectAnswer(this, false)">A. O Homem</button>
+            <button onclick="selectAnswer(this, false)">B. A Luz</button>
+            <button onclick="selectAnswer(this, true)">C. Os Céus</button>
+            <button onclick="selectAnswer(this, false)">D. As Estrelas</button>
+        </div>
+        <button id="confirmButton" onclick="confirmAnswer()">Confirmar Resposta</button>
+        <div id="resultMessage"></div>
+    </div>
+
+    <div id="overlayMessage">
+        <div>
+            <span id="overlayText"></span>
+            <img id="overlayIcon" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        let selectedAnswer = null;
+
+        function selectAnswer(element, isCorrect) {
+            const answers = document.querySelectorAll('#answers button');
+            answers.forEach(answer => {
+                answer.style.backgroundColor = 'transparent';
+                answer.style.border = '1px solid #ccc';
+            });
+            element.style.backgroundColor = '#e8f7ff';
+            element.style.border = '2px solid #3b82f6';
+            selectedAnswer = { element, isCorrect };
+            resetResult();
+        }
+
+        function confirmAnswer() {
+    const quizBody = document.getElementById('quizBody');
+    const resultMessage = document.getElementById('resultMessage');
+    const overlayMessage = document.getElementById('overlayMessage');
+    const overlayText = document.getElementById('overlayText');
+    const overlayIcon = document.getElementById('overlayIcon');
+
+    if (selectedAnswer) {
+        if (selectedAnswer.isCorrect) {
+            // Resposta Correta
+            quizBody.style.backgroundColor = '#ecfdf5';
+
+            resultMessage.textContent = 'Correta Resposta';
+            resultMessage.style.color = '#16a34a'; // Texto verde
+            resultMessage.style.display = 'block';
+
+            overlayMessage.style.display = 'flex'; // Exibe a mensagem de overlay
+            overlayText.textContent = 'Correta Resposta';
+            overlayIcon.src = 'https://placehold.co/50x50/green/confetti'; // Ícone de confete
+            overlayIcon.alt = 'Confetti indicating a correct answer';
+
+            setTimeout(() => {
+                window.location.href = 'Fase_02.html'; // Redireciona para a próxima fase
+            }, 2000);
+        } else {
+            // Resposta Incorreta
+            resultMessage.textContent = 'Resposta Errada!';
+                    resultMessage.style.color = '#dc2626';
+                    resultMessage.style.display = 'block';
+
+                    overlayMessage.style.display = 'flex';
+                    overlayText.textContent = 'Resposta Errada!';
+            overlayIcon.src = 'https://placehold.co/50x50/red/x'; // Ícone de X vermelho
+            overlayIcon.alt = 'Red X indicating a wrong answer';
+
+            setTimeout(() => {
+                resetResult(); // Limpa a seleção e permite nova tentativa
+            }, 2000);
+        }
+    }
+}
+
+        function resetResult() {
+            const quizBody = document.getElementById('quizBody');
+            const resultMessage = document.getElementById('resultMessage');
+            const overlayMessage = document.getElementById('overlayMessage');
+            resultMessage.style.display = 'none';
+            overlayMessage.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
